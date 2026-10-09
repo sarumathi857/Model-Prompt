@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartMart Business Decision Dashboard</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --primary: #1e3a8a;
+      --secondary: #0f766e;
+      --accent: #f59e0b;
+      --danger: #dc2626;
+      --success: #16a34a;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 20px 40px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+      color: var(--primary);
+    }
+
+    .subtitle {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .card .label {
+      color: var(--muted);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .card .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card.highlight {
+      background: linear-gradient(135deg, #ecf3ff, #ffffff);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 28px;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: var(--primary);
+      font-size: 1.35rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .recommendation {
+      background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+      border: 1px solid #bbf7d0;
+      border-left: 6px solid var(--success);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .recommendation strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: #166534;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .badge.good { background: #dcfce7; color: #166534; }
+    .badge.warn { background: #fef3c7; color: #92400e; }
+    .badge.bad { background: #fee2e2; color: #991b1b; }
+
+    .small { font-size: 0.82rem; color: var(--muted); }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 1.7rem; }
+      .panel { padding: 15px; }
+      th, td { font-size: 0.82rem; padding: 10px 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SmartMart Business Decision Dashboard</h1>
+    <p class="subtitle">Evidence-based evaluation of sales, profit, growth, customer sentiment, stock, and marketing performance.</p>
+
+    <div class="cards">
+      <div class="card highlight">
+        <div class="label">Total Revenue</div>
+        <div class="value">$37,140.00</div>
+      </div>
+      <div class="card">
+        <div class="label">Total COGS</div>
+        <div class="value">$24,144.00</div>
+      </div>
+      <div class="card">
+        <div class="label">Gross Profit</div>
+        <div class="value">$12,996.00</div>
+      </div>
+      <div class="card">
+        <div class="label">Gross Profit Margin</div>
+        <div class="value">34.98%</div>
+      </div>
+    </div>
+
+    <div class="recommendation">
+      <strong>Recommended action</strong>
+      Prioritize customer pain-point fixes before further marketing spend.
+      <div class="small" style="margin-top: 8px;">
+        Headphones have the lowest average rating and the most negative feedback, while Wireless Mouse remains the strongest product on sales growth and customer satisfaction.
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Product summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Units Sold</th>
+            <th>Revenue</th>
+            <th>COGS</th>
+            <th>Gross Profit</th>
+            <th>Gross Margin</th>
+            <th>Marketing Spend</th>
+            <th>Sales Growth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Headphones</td>
+            <td>228</td>
+            <td>$13,680.00</td>
+            <td>$9,576.00</td>
+            <td>$4,104.00</td>
+            <td>30.00%</td>
+            <td>$2,480.00</td>
+            <td><span class="badge bad">-5.26%</span></td>
+          </tr>
+          <tr>
+            <td>Keyboard</td>
+            <td>298</td>
+            <td>$13,410.00</td>
+            <td>$8,940.00</td>
+            <td>$4,470.00</td>
+            <td>33.33%</td>
+            <td>$2,150.00</td>
+            <td><span class="badge good">12.24%</span></td>
+          </tr>
+          <tr>
+            <td>Wireless Mouse</td>
+            <td>402</td>
+            <td>$10,050.00</td>
+            <td>$5,628.00</td>
+            <td>$4,422.00</td>
+            <td>44.00%</td>
+            <td>$2,000.00</td>
+            <td><span class="badge good">13.64%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>Customer feedback sentiment</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Avg Rating</th>
+            <th>Positive</th>
+            <th>Neutral</th>
+            <th>Negative</th>
+            <th>Key issues</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wireless Mouse</td>
+            <td>4.00</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>Strong positive feedback; smooth and easy to use</td>
+          </tr>
+          <tr>
+            <td>Keyboard</td>
+            <td>3.00</td>
+            <td>2</td>
+            <td>0</td>
+            <td>1</td>
+            <td>Quality inconsistency and discomfort</td>
+          </tr>
+          <tr>
+            <td>Headphones</td>
+            <td>2.50</td>
+            <td>1</td>
+            <td>0</td>
+            <td>3</td>
+            <td>Battery drains too fast and uncomfortable</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>Alternative evaluation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Alternative</th>
+            <th>Pros</th>
+            <th>Risk</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Increase Wireless Mouse marketing</td>
+            <td>Strong growth and highest margin</td>
+            <td>May overspend if demand is already adequate</td>
+            <td><span class="badge good">3rd</span></td>
+          </tr>
+          <tr>
+            <td>Improve Keyboard quality</td>
+            <td>Profitable and growing, quality issues exist</td>
+            <td>Could raise cost without large complaint reduction</td>
+            <td><span class="badge warn">2nd</span></td>
+          </tr>
+          <tr>
+            <td>Address Headphones battery and comfort complaints</td>
+            <td>Fixes the biggest customer pain point</td>
+            <td>May need redesign or warranty costs</td>
+            <td><span class="badge bad">1st</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
